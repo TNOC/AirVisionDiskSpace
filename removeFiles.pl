@@ -95,16 +95,19 @@ sub removeFromDir {
 
 $useDir = 'C:\ProgramData\airVisionNVR\bin.32\nvr\www\events\\';
 
+open (LOGFILE, '>>data.txt');
 
 ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst)=localtime(time);
-printf "Starting Script at: %4d-%02d-%02d %02d:%02d:%02d\n",
+printf LOGFILE "Starting Script at: %4d-%02d-%02d %02d:%02d:%02d\n",
 $year+1900,$mon+1,$mday,$hour,$min,$sec;
 
 
 (my $subFileCount, my $subFilesRemoved, my $totalRemoved) = removeFromDir(10, $useDir, 0);
-print "The Directory: ".$useDir." had ".$subFileCount." files and ".$subFilesRemoved." were removed\n\n";
+print LOGFILE "The Directory: ".$useDir." had ".$subFileCount." files and ".$subFilesRemoved." were removed\n\n";
 print "A total of ".$totalRemoved." files were removed\n\n";
 
 ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst)=localtime(time);
-printf "Ending Script: %4d-%02d-%02d %02d:%02d:%02d\n\n",
+printf LOGFILE "Ending Script: %4d-%02d-%02d %02d:%02d:%02d\n\n",
 $year+1900,$mon+1,$mday,$hour,$min,$sec;
+
+close(LOGFILE);
