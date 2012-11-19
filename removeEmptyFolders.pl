@@ -90,9 +90,7 @@ my $useDir = 'C:\ProgramData\airVisionNVR\bin.32\nvr\www\events\\';
 
 open (LOGFILE, '>>run.txt');
 
-($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst)=localtime(time);
-printf LOGFILE "Starting script at: %4d-%02d-%02d %02d:%02d:%02d",
-$year+1900,$mon+1,$mday,$hour,$min,$sec;
+printf LOGFILE "Starting script at: ". localtime() ."\n";
 
 print LOGFILE " in ". $useDir ."\n";
 removeDirWithoutJPG($useDir, 0);
@@ -100,7 +98,6 @@ removeDirWithoutJPG($useDir, 0);
 
 ($sec,$min,$hour,$mday,$mon,$year,$wday,
 $yday,$isdst)=localtime(time);
-printf LOGFILE "Ending Script at: %4d-%02d-%02d %02d:%02d:%02d\n",
-$year+1900,$mon+1,$mday,$hour,$min,$sec;
+printf LOGFILE "Ending Script at: ". localtime() ."\n"
 
 close (LOGFILE);
