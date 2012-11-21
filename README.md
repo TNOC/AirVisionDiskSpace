@@ -5,6 +5,11 @@ About
 --------
 A set of scripts to clean up disk space on an AirVision installation and remove folders with no images stored
 
+Requirements
+------------
+- Perl
+- File::stats
+
 Platform
 --------
 <b>Language</b>: Perl<br />
