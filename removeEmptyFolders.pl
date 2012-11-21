@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-use Time::localtime;
+use POSIX qw(strftime);
 
 sub delimater {
     return "/";
@@ -92,14 +92,15 @@ my $useDir = 'C:\ProgramData\airVisionNVR\bin.32\nvr\www\events\\';
 
 open (LOGFILE, '>>run.txt');
 
-printf LOGFILE "Starting script at: ". localtime() ."\n";
+$now_string = strftime "%a %b %e %H:%M:%S %Y", localtime;
+
+printf LOGFILE "Starting script at: $now_string\n";
 
 print LOGFILE " in ". $useDir ."\n";
 removeDirWithoutJPG($useDir, 0);
 
 
-($sec,$min,$hour,$mday,$mon,$year,$wday,
-$yday,$isdst)=localtime(time);
-printf LOGFILE "Ending Script at: ". localtime() ."\n"
+$now_string = strftime "%a %b %e %H:%M:%S %Y", localtime;
+printf LOGFILE "Ending Script at: $now_string\n"
 
 close (LOGFILE);

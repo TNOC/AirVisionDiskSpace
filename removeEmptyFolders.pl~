@@ -1,5 +1,7 @@
 #!/usr/bin/perl
 
+use Time::localtime;
+
 sub delimater {
     return "/";
 }
@@ -88,7 +90,16 @@ sub removeDirWithoutJPG {
 
 my $useDir = 'C:\ProgramData\airVisionNVR\bin.32\nvr\www\events\\';
 
-print "Starting script in ". $useDir ."\n";
-removeDirWithoutJPG($useDir, 0);
-print "Ending Script\n";
+open (LOGFILE, '>>run.txt');
 
+printf LOGFILE "Starting script at: ". localtime() ."\n";
+
+print LOGFILE " in ". $useDir ."\n";
+removeDirWithoutJPG($useDir, 0);
+
+
+($sec,$min,$hour,$mday,$mon,$year,$wday,
+$yday,$isdst)=localtime(time);
+printf LOGFILE "Ending Script at: ". localtime() ."\n"
+
+close (LOGFILE);
