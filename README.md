@@ -1,4 +1,6 @@
-AirVisionDiskSpace
+AirVision Disk Space
 ==================
 
-scripts to clean up disk space on an AirVision installation
+About
+--------
+A set of scripts to clean up disk space on an AirVision installation and remove folders with no images stored
