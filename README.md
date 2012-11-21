@@ -9,4 +9,4 @@ Platform
 --------
 <b>Language</b>: Perl<br />
 <b>Platform</b>: Built for Windows, tested on Mac OSX<br />
-<b>Windows Perl Installer</b>: (ActivePerl)[https://s3.amazonaws.com/scriptsAndInstallers/AirVision/ActivePerl-5.14.2.1402-MSWin32-x64-295342.msi]
+<b>Windows Perl Installer</b>: [ActivePerl](https://s3.amazonaws.com/scriptsAndInstallers/AirVision/ActivePerl-5.14.2.1402-MSWin32-x64-295342.msi)
