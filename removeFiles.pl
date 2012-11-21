@@ -1,7 +1,6 @@
 #!/usr/bin/perl
 
 use File::stat;
-use POSIX qw(strftime);
 
 sub fileDate {
     my $file = shift;
@@ -99,16 +98,17 @@ open (LOGFILE, '>>data.txt');
 
 
 
-$now_string = strftime "%a %b %e %H:%M:%S %Y", localtime;
+$start_time = time();
 
-print LOGFILE "Starting Script at: $now_string \n";
+print LOGFILE "================================\n";
+print LOGFILE "Starting Script at: $start_time \n";
 
 (my $subFileCount, my $subFilesRemoved, my $totalRemoved) = removeFromDir(10, $useDir, 0);
 
 print LOGFILE "The Directory: ".$useDir." had ".$subFileCount." files and ".$subFilesRemoved." were removed\n\n";
 print LOGFILE "A total of ".$totalRemoved." files were removed\n\n";
 
-$now_string = strftime "%a %b %e %H:%M:%S %Y", localtime;
-print LOGFILE "Ending Script: $now_string \n";
+$end_time = time();
+print LOGFILE "Ending Script at: $end_time. Script ran for ". ($end_time - $start_time) ." seconds\n\n\n";
 
 close(LOGFILE);
